@@ -1,0 +1,335 @@
+/* ================= Сброс и база ================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* ================= Общая разметка ================= */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+}
+
+.header h1 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* ================= Карточки ================= */
+.demo-card,
+.wiki-ref-section {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 380px;
+  animation: fadeIn 0.4s ease-out;
+  position: relative;
+  overflow: visible;
+}
+
+.wiki-ref-section {
+  max-width: 600px;
+}
+
+.demo-card h2,
+.wiki-ref-section h3 {
+  font-size: 1.15rem;
+  color: #1e293b;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.output {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 0.95rem;
+  color: #334155;
+  min-height: 32px;
+  line-height: 1.5;
+}
+
+.output strong {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 8px 12px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #1e40af;
+}
+
+.footer {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+.footer code {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 0.85rem;
+}
+
+/* ================= DatePicker ================= */
+.date-picker {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.date-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fff;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.date-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* Выпадающий календарь */
+.calendar {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  /* Убираем любые ограничения высоты */
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.calendar-header button {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
+  transition: background 0.15s;
+}
+
+.calendar-header button:hover {
+  background: #e2e8f0;
+}
+
+.month {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0f172a;
+  text-transform: capitalize;
+}
+
+/* 🔑 СЕТКА ДНЕЙ: ИСПРАВЛЕНИЕ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 36px); /* Жёстко 6 строк */
+  gap: 4px;
+  min-height: 240px; /* Физический резерв пространства */
+  width: 100%;
+}
+
+.day-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.7rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+  user-select: none;
+  pointer-events: auto; /* Включаем клики */
+}
+
+.day:hover:not(.disabled) {
+  background: #f1f5f9;
+}
+
+.day.selected {
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.day.today {
+  border: 2px solid #007bff;
+  box-sizing: border-box;
+}
+
+.day.other-month {
+  color: #cbd5e1;
+}
+
+.day.disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* ================= Wiki Links ================= */
+.wiki-ref-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #202122;
+}
+
+.wiki-ref-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25em 0.5em;
+  margin-bottom: 0.6em;
+  padding-bottom: 0.4em;
+  border-bottom: 1px solid #eaecf0;
+}
+
+.wiki-ref-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ref-title {
+  font-weight: 600;
+  white-space: nowrap;
+  color: #1e293b;
+}
+
+.ref-url {
+  color: #0645ad;
+  text-decoration: none;
+  font-size: 0.9em;
+  max-width: 45ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.ref-url:hover {
+  text-decoration: underline;
+}
+
+.ref-url::after {
+  content: ' ↗';
+  font-size: 0.85em;
+  opacity: 0.5;
+  margin-left: 0.1em;
+}
+
+/* ================= Анимации ================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= Адаптив ================= */
+@media (max-width: 600px) {
+  .wiki-ref-item {
+    flex-direction: column;
+    gap: 0.2em;
+  }
+  .ref-url {
+    max-width: 90vw;
+  }
+}
