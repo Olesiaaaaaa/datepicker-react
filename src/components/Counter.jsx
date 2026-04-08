@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Counter() {
+export default function Counter({ label = 'Счётчик' }) {
   const [count, setCount] = useState(0)
   const [step, setStep] = useState(1)
 
@@ -10,7 +10,7 @@ export default function Counter() {
 
   return (
     <div className="counter-card">
-      <h3>🔢 Счётчик</h3>
+      <h3>🔢 {label}</h3>
 
       <div className="counter-display">
         <span className={`count ${count < 0 ? 'negative' : ''}`}>{count}</span>

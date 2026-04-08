@@ -507,3 +507,10 @@ body {
   font-style: italic;
   min-height: 24px;
 }
+.counters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+}
