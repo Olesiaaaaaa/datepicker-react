@@ -12,6 +12,8 @@ function App() {
 
   return (
     <div className="app">
+      <div className="beta-badge">🔥 Бета-версия</div>
+
       <header className="header">
         <h1>📅 DatePicker</h1>
         <p className="subtitle">React + JSX + Vite</p>

@@ -107,6 +107,32 @@ body {
   color: #1e40af;
 }
 
+/* ================= Beta Badge ================= */
+.beta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0 auto 16px auto;
+  box-shadow: 0 4px 12px rgba(238, 90, 36, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 .footer {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
@@ -148,7 +174,6 @@ body {
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
 }
 
-/* Выпадающий календарь */
 .calendar {
   position: absolute;
   top: calc(100% + 8px);
@@ -160,7 +185,6 @@ body {
   padding: 16px;
   z-index: 1000;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  /* Убираем любые ограничения высоты */
   height: auto !important;
   overflow: visible !important;
 }
@@ -198,13 +222,12 @@ body {
   text-transform: capitalize;
 }
 
-/* 🔑 СЕТКА ДНЕЙ: ИСПРАВЛЕНИЕ */
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 36px); /* Жёстко 6 строк */
+  grid-template-rows: repeat(6, 36px);
   gap: 4px;
-  min-height: 240px; /* Физический резерв пространства */
+  min-height: 240px;
   width: 100%;
 }
 
@@ -229,7 +252,7 @@ body {
   font-size: 0.9rem;
   transition: all 0.15s ease;
   user-select: none;
-  pointer-events: auto; /* Включаем клики */
+  pointer-events: auto;
 }
 
 .day:hover:not(.disabled) {
