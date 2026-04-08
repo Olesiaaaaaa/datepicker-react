@@ -1,10 +1,9 @@
-/* ================= Сброс и база ================= */
+﻿/* ================= Сброс и база ================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family:
     system-ui,
@@ -16,8 +15,6 @@ body {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
 }
-
-/* ================= Общая разметка ================= */
 .app {
   display: flex;
   flex-direction: column;
@@ -26,30 +23,24 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
-
 .header {
   text-align: center;
 }
-
 .header h1 {
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   font-size: 1.8rem;
 }
-
 .subtitle {
   color: rgba(255, 255, 255, 0.95);
   font-size: 1.1rem;
 }
-
 .main {
   display: flex;
   flex-direction: column;
   gap: 24px;
   width: 100%;
 }
-
-/* ================= Карточки ================= */
 .demo-card,
 .wiki-ref-section {
   background: white;
@@ -62,11 +53,9 @@ body {
   position: relative;
   overflow: visible;
 }
-
 .wiki-ref-section {
   max-width: 600px;
 }
-
 .demo-card h2,
 .wiki-ref-section h3 {
   font-size: 1.15rem;
@@ -75,25 +64,22 @@ body {
   padding-bottom: 12px;
   border-bottom: 1px solid #e2e8f0;
 }
-
 .output {
   margin-top: 20px;
   padding: 14px 16px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-family: monospace;
   font-size: 0.95rem;
   color: #334155;
   min-height: 32px;
   line-height: 1.5;
 }
-
 .output strong {
   color: #007bff;
   font-weight: 600;
 }
-
 .info-badge {
   display: inline-flex;
   align-items: center;
@@ -106,8 +92,6 @@ body {
   font-size: 0.85rem;
   color: #1e40af;
 }
-
-/* ================= Beta Badge ================= */
 .beta-badge {
   display: inline-flex;
   align-items: center;
@@ -122,17 +106,6 @@ body {
   box-shadow: 0 4px 12px rgba(238, 90, 36, 0.3);
   animation: pulse 2s infinite;
 }
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-}
-
 .footer {
   color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
@@ -140,7 +113,6 @@ body {
   margin-top: 24px;
   line-height: 1.6;
 }
-
 .footer code {
   background: rgba(255, 255, 255, 0.25);
   padding: 3px 8px;
@@ -148,14 +120,11 @@ body {
   font-family: monospace;
   font-size: 0.85rem;
 }
-
-/* ================= DatePicker ================= */
 .date-picker {
   position: relative;
   width: 100%;
   z-index: 10;
 }
-
 .date-input {
   width: 100%;
   padding: 10px 12px;
@@ -167,19 +136,17 @@ body {
     border-color 0.2s,
     box-shadow 0.2s;
 }
-
 .date-input:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
 }
-
 .calendar {
   position: absolute;
   top: calc(100% + 8px);
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 16px;
@@ -188,14 +155,12 @@ body {
   height: auto !important;
   overflow: visible !important;
 }
-
 .calendar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 12px;
 }
-
 .calendar-header button {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
@@ -210,18 +175,15 @@ body {
   color: #334155;
   transition: background 0.15s;
 }
-
 .calendar-header button:hover {
   background: #e2e8f0;
 }
-
 .month {
   font-weight: 600;
   font-size: 0.95rem;
   color: #0f172a;
   text-transform: capitalize;
 }
-
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -230,7 +192,6 @@ body {
   min-height: 240px;
   width: 100%;
 }
-
 .day-name {
   display: flex;
   align-items: center;
@@ -241,7 +202,6 @@ body {
   font-weight: 600;
   text-transform: uppercase;
 }
-
 .day {
   display: flex;
   align-items: center;
@@ -254,32 +214,25 @@ body {
   user-select: none;
   pointer-events: auto;
 }
-
 .day:hover:not(.disabled) {
   background: #f1f5f9;
 }
-
 .day.selected {
   background: #007bff;
   color: #fff;
   font-weight: 600;
 }
-
 .day.today {
   border: 2px solid #007bff;
   box-sizing: border-box;
 }
-
 .day.other-month {
   color: #cbd5e1;
 }
-
 .day.disabled {
   opacity: 0.35;
   cursor: not-allowed;
 }
-
-/* ================= Wiki Links ================= */
 .wiki-ref-list {
   list-style: none;
   padding: 0;
@@ -288,7 +241,6 @@ body {
   line-height: 1.6;
   color: #202122;
 }
-
 .wiki-ref-item {
   display: flex;
   flex-wrap: wrap;
@@ -298,19 +250,16 @@ body {
   padding-bottom: 0.4em;
   border-bottom: 1px solid #eaecf0;
 }
-
 .wiki-ref-item:last-child {
   border-bottom: none;
   margin-bottom: 0;
   padding-bottom: 0;
 }
-
 .ref-title {
   font-weight: 600;
   white-space: nowrap;
   color: #1e293b;
 }
-
 .ref-url {
   color: #0645ad;
   text-decoration: none;
@@ -320,21 +269,118 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
-  vertical-align: baseline;
 }
-
 .ref-url:hover {
   text-decoration: underline;
 }
-
 .ref-url::after {
   content: ' ↗';
   font-size: 0.85em;
   opacity: 0.5;
   margin-left: 0.1em;
 }
-
-/* ================= Анимации ================= */
+.task-app {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+.task-app h2 {
+  font-size: 1.15rem;
+  color: #1e293b;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.input-group input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.input-group button {
+  padding: 10px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+.input-group button:hover {
+  background: #0056b3;
+}
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.filters button {
+  padding: 6px 12px;
+  border: 1px solid #e2e8f0;
+  background: #f8fafc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+.filters button.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+.task-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.task-list li.completed span {
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+.task-list li span {
+  cursor: pointer;
+  flex: 1;
+  font-size: 0.95rem;
+  color: #334155;
+}
+.task-list .delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.task-list .delete:hover {
+  opacity: 1;
+}
+.empty {
+  text-align: center;
+  color: #64748b;
+  padding: 20px;
+  font-style: italic;
+}
+.stats {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #475569;
+  text-align: right;
+  font-weight: 500;
+}
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -345,8 +391,15 @@ body {
     transform: translateY(0);
   }
 }
-
-/* ================= Адаптив ================= */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
 @media (max-width: 600px) {
   .wiki-ref-item {
     flex-direction: column;
@@ -354,5 +407,11 @@ body {
   }
   .ref-url {
     max-width: 90vw;
+  }
+  .input-group {
+    flex-direction: column;
+  }
+  .filters {
+    flex-wrap: wrap;
   }
 }
