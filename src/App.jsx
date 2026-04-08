@@ -1,4 +1,5 @@
 import TaskList from './components/TaskList'
+import Counter from './components/Counter'
 
 function App() {
   return (
@@ -9,7 +10,9 @@ function App() {
           Массивы, объекты, фильтрация, иммутабельность
         </p>
       </header>
+
       <main className="main">
+        <Counter />
         <TaskList />
       </main>
     </div>

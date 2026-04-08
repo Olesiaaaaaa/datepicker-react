@@ -415,3 +415,95 @@ body {
     flex-wrap: wrap;
   }
 }
+/* ================= Counter ================= */
+.counter-card {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 24px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.counter-card h3 {
+  font-size: 1.15rem;
+  color: #1e293b;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.counter-display {
+  margin: 20px 0;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+}
+.counter-display .count {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition: color 0.2s;
+}
+.counter-display .count.negative {
+  color: #ef4444;
+}
+.counter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    box-shadow 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn-success {
+  background: #22c55e;
+  color: white;
+}
+.btn-danger {
+  background: #ef4444;
+  color: white;
+}
+.btn-secondary {
+  background: #64748b;
+  color: white;
+  font-size: 0.9rem;
+  padding: 10px 16px;
+}
+.counter-step {
+  margin: 16px 0;
+  font-size: 0.95rem;
+  color: #475569;
+}
+.counter-step input {
+  width: 60px;
+  margin-left: 8px;
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+}
+.counter-info {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: #64748b;
+  font-style: italic;
+  min-height: 24px;
+}
